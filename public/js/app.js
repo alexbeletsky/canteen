@@ -16,12 +16,13 @@ require.config({
         backbone: 'libs/backbone',
         jquery: 'libs/jquery',
         underscore: 'libs/underscore',
-
+        io: '/socket.io/socket.io',
         core: 'aura/mediator'
     }
 });
 
 // Starts main modules
 requirejs(['core'], function (core) {
-    core.publish('chat', "#chat");
+    core.start('chat', '#chat');
+    core.start('hub');
 });

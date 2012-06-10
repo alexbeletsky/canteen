@@ -1,6 +1,6 @@
 define(['core', 'backbone'], function (core, Backbone) {
 
-	var AppView = Backbone.View.extend({
+	var ChatView = Backbone.View.extend({
 		template: _.template(
 			'<div class="chat-in">\
 				<input type="text" id="message" />\
@@ -10,11 +10,13 @@ define(['core', 'backbone'], function (core, Backbone) {
 		),
 
 		events: {
-			'click #send': 'send'
+			'click #send': 'onSend'
 		},
 
 		initialize: function () {
+			_.bindAll(this, 'onSend', 'onRecieve');
 
+			core.subscribe('message/recieved', this.onRecieve);
 		},
 
 		render: function() {
@@ -24,11 +26,15 @@ define(['core', 'backbone'], function (core, Backbone) {
 			return this;
 		},
 
-		send: function () {
-			alert('sent');
+		onSend: function () {
+			core.publish('message/sent', { message: 'hi everyone!' });
+		},
+
+		onRecieve: function () {
+
 		}
 	});
 
-	return AppView;
+	return ChatView;
 
 });

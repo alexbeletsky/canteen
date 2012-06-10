@@ -1,5 +1,5 @@
-define(['core', './views/app'], function (core, AppView) {
+define(['core', './views/chat'], function (core, ChatView) {
 	core.subscribe('chat', function (element) {
-		new AppView({ el: element }).render();
+		new ChatView({ el: element }).render();
 	});
 });
