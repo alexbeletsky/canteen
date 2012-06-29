@@ -30,6 +30,9 @@ app.configure('production', function(){
 // Routes
 require('./routes/home')(app);
 
+// Chat server
+require('./src/chatServer')(app, io);
+
 // App
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

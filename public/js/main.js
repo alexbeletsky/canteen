@@ -17,12 +17,11 @@ require.config({
         jquery: 'libs/jquery',
         underscore: 'libs/underscore',
         io: '/socket.io/socket.io',
-        core: 'aura/mediator'
+        amplify: 'libs/amplify'
     }
 });
 
 // Starts main modules
-requirejs(['core'], function (core) {
-    core.start('chat', '#chat');
-    core.start('hub');
+requirejs(['src/apps/chat'], function (ChatApp) {
+    ChatApp.run();
 });
