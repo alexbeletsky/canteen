@@ -18,6 +18,7 @@ define(['jquery', 'backbone', './../hub'], function ($, Backbone, hub) {
 			_.bindAll(this);
 
 			hub.connect();
+			
 			hub.recieve('connected', this.onConnected);
 			hub.recieve('joined', this.onJoined);
 			hub.recieve('ready', this.onReady);
@@ -69,7 +70,6 @@ define(['jquery', 'backbone', './../hub'], function ($, Backbone, hub) {
 		onSayClicked: function () {
 			var what = this.$('.message').val();
 			hub.send('say', what);
-			// this.$chat.append('<div class="chat-line">' + this.nick + ': ' + what + '</div>');			
 			this.$('.message').val('');
 		}
 	});
