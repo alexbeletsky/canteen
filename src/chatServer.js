@@ -18,7 +18,7 @@ module.exports = function (app, io) {
 
 			socket.set('table', tableName, function () {
 				socket.join(tableName);
-				socket.emit('joined');
+				socket.emit('joined', { tableName: tableName });
 				socket.emit('messages', { messages: table.messages });
 			});
 		});

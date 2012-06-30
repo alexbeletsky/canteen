@@ -10,13 +10,13 @@ define(function (require) {
 
 	return {
 		run: function () {
+			// connect to message hub
+			messageHub.connect();
+
 			// run all widgets here..
 			new SayView({ el: $('#say'), messageHub: MessageHub }).render(); 
 			new StatusView({ el: $('#status'), messageHub: MessageHub }).render();
 			new MessagesView({ el: $('#messages'), messageHub: MessageHub }).render();
-
-			// connect to message hub
-			messageHub.connect();
 		}
 	}
 });
