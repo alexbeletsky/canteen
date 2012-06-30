@@ -7,10 +7,16 @@ module.exports = function (app, io) {
 		socket.emit('connected', { message: 'welcome to Canteen' });
 		socket.emit('messages', { messages: messages });
 
-		socket.on('say', function (what) {
-			messages.push(what);
+		socket.on('set nick', function (nick) {
+			socket.set('nick', nick);
+		});
 
-			socket.broadcast.emit('message', { message: what });
+		socket.on('say', function (what) {
+			socket.get('nick', function (err, nick) {
+				var message = nick + ': ' + what;
+				messages.push(message);
+				socket.broadcast.emit('message', { message: message });
+			});
 		});
 
 

@@ -19,6 +19,7 @@ define(['jquery', 'backbone', './../hub'], function ($, Backbone, hub) {
 
 			hub.connect();
 			hub.recieve('connected', this.onConnected);
+			// TODO: place onReady
 			hub.recieve('messages', this.onMessages);
 			hub.recieve('message', this.onMessage);
 		},
@@ -33,6 +34,8 @@ define(['jquery', 'backbone', './../hub'], function ($, Backbone, hub) {
 
 		// Events
 		onConnected: function (d) {
+			this.nick = 'user' + Math.floor((Math.random() * 100) + 1);
+			hub.send('set nick', this.nick);
 		},
 
 		onMessages: function (d) {
@@ -51,7 +54,7 @@ define(['jquery', 'backbone', './../hub'], function ($, Backbone, hub) {
 		onSayClicked: function () {
 			var what = this.$('.message').val();
 			hub.send('say', what);
-			this.$chat.append('<div class="chat-line">' + what + '</div>');			
+			this.$chat.append('<div class="chat-line">' + this.nick + ': ' + what + '</div>');			
 			this.$('.message').val('');
 		}
 	});
