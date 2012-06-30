@@ -1,4 +1,4 @@
-define(['jquery', 'backbone' ], function ($, Backbone, hub) {
+define(['jquery', 'backbone' ], function ($, Backbone) {
 
 	var SayView = Backbone.View.extend({
 
