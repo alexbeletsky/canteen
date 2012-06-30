@@ -22,6 +22,6 @@ require.config({
 });
 
 // Starts main modules
-requirejs(['src/apps/chat'], function (ChatApp) {
+requirejs(['src/apps/ChatApp'], function (ChatApp) {
     ChatApp.run();
 });
