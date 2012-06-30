@@ -1,7 +1,7 @@
 define(function (require) {
 	
 	// Socket.io message hub
-	var messageHub = MessageHub = require('../hub');
+	var hub = Hub = require('../hub');
 
 	// Views
 	var SayView = require('../views/SayView');
@@ -11,12 +11,12 @@ define(function (require) {
 	return {
 		run: function () {
 			// connect to message hub
-			messageHub.connect();
+			hub.connect();
 
 			// run all widgets here..
-			new SayView({ el: $('#say'), messageHub: MessageHub }).render(); 
-			new StatusView({ el: $('#status'), messageHub: MessageHub }).render();
-			new MessagesView({ el: $('#messages'), messageHub: MessageHub }).render();
+			new SayView({ el: $('#say'), hub: Hub }).render(); 
+			new StatusView({ el: $('#status'), hub: Hub }).render();
+			new MessagesView({ el: $('#messages'), hub: Hub }).render();
 		}
 	}
 });

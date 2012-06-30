@@ -13,11 +13,11 @@ define(['jquery', 'backbone' ], function ($, Backbone) {
 		},
 
 		initialize: function (options) {
-			if (!(options && options.messageHub)) {
-				throw new Error('SayView: messageHub is required');
-			}
-
 			_.bindAll(this);
+
+			if (!(options && options.hub)) {
+				throw new Error('SayView: hub is required');
+			}
 
 			this.messageHub = options.messageHub;
 		},
