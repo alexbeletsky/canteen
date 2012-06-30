@@ -7,13 +7,13 @@ define(['jquery', 'backbone' ], function ($, Backbone) {
 		'),
 
 		initialize: function (options) {
-			if (!(options && options.messageHub)) {
-				throw new Error('StatusView: messageHub is required');
-			}
-
 			_.bindAll(this);
 
-			this.hub = options.messageHub;
+			if (!(options && options.hub)) {
+				throw new Error('StatusView: hub is required');
+			}
+
+			this.hub = options.hub;
 
 			this.hub.recieve('connected', this.onConnected);
 			this.hub.recieve('joined', this.onJoined);
