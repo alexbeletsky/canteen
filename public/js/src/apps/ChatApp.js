@@ -1,13 +1,13 @@
 define(function (require) {
-	
-	// Socket.io message hub
-	var hub = Hub = require('../hub');
-	var chatView = ChatView = require('../views/ChatView');
 
-	return {
-		run: function () {
-			// connect to message hub
-			hub.connect();
+	var ChatView = require('../views/chatview');
+
+	var LoginApp = {
+		run: function (viewManager) {
+			viewManager.show(new ChatView());
 		}
-	}
+	};
+
+	return LoginApp;	
+
 });

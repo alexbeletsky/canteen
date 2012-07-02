@@ -1,6 +1,8 @@
-define(['jquery', 'backbone' ], function ($, Backbone) {
+define(function (require) {
 
-	var MessagesView = Backbone.View.extend({
+	var BaseView = require('../baseview');
+
+	var MessagesView = BaseView.extend({
 
 		initialize: function (options) {
 			_.bindAll(this);

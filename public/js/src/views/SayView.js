@@ -1,6 +1,8 @@
-define(['jquery', 'backbone' ], function ($, Backbone) {
+define(function (require) {
 
-	var SayView = Backbone.View.extend({
+	var BaseView = require('../baseview');
+
+	var SayView = BaseView.extend({
 
 		template: _.template('\
 			<input type="text" class="say-what" />\

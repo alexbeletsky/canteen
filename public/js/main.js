@@ -22,6 +22,6 @@ require.config({
 });
 
 // Starts main modules
-requirejs(['src/apps/ChatApp'], function (ChatApp) {
-    ChatApp.run();
+requirejs(['src/routing'], function (routing) {
+    routing.startRouting();
 });

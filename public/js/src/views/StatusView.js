@@ -1,6 +1,8 @@
-define(['jquery', 'backbone' ], function ($, Backbone) {
+define(function (require) {
 
-	var StatusView = Backbone.View.extend({
+	var BaseView = require('../baseview');
+
+	var StatusView = BaseView.extend({
 
 		template: _.template('\
 			<span class="status"></span>\
