@@ -15,10 +15,6 @@ define(function (require) {
 		'),
 
 		initialize: function (options) {
-			// if (!(options && options.hub)) {
-			// 	throw new Error('ChatView: message hub is required');
-			// }
-
 			this.hub = {
 				recieve: function () {
 
@@ -34,10 +30,6 @@ define(function (require) {
 		},
 
 		render: function () {
-			// this.sayView = new SayView({ hub: this.hub }).render(); 
-			// this.statusView = new StatusView({ hub: this.hub }).render();
-			// this.messagesView = new MessagesView({ hub: this.hub }).render();
-
 			var content = this.template();
 			this.$el.html(content);
 

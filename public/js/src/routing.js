@@ -3,10 +3,10 @@ define(function (require) {
 	var Backbone = require('backbone');
 	var ViewManager = require('./viewmanager');
 
-	var Apps = {
+	var apps = {
 		'login': require('./apps/loginapp'),
 		'app': require('./apps/chatapp')
-	}
+	};
 
 	var ApplicationRouting = Backbone.Router.extend({
 		initialize: function (options) {
@@ -18,16 +18,16 @@ define(function (require) {
 		},
 
 		routes: {
-			'login': 'login',
+			//'login': 'login',
 			'app': 'app'
 		},
 
-		login: function () {
-			Apps['login'].run(this.appView);
-		},
+		// login: function () {
+		// 	apps['login'].run(this.appView);
+		// },
 
 		app: function () {
-			Apps['app'].run(this.appView);
+			apps['app'].run(this.appView);
 		}
 	});
 
