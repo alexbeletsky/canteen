@@ -8,7 +8,7 @@ var express = require('express');
 var app = module.exports = express.createServer()
   , io = require('socket.io').listen(app);
 
-var middleware = require('./middleware');
+var middleware = require('./src/middleware');
 
 // Configuration
 

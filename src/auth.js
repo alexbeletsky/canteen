@@ -6,7 +6,6 @@ module.exports = {
 			if (req.session && req.session.user) {
 				req.session.user.name = email;
 				req.session.user.auth = true;
-				console.log('-- user authorized');	
 			}
 		}
 
